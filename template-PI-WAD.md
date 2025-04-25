@@ -4,7 +4,9 @@
 
 ## Nome do Projeto
 
-#### Autor do projeto
+#### Nicholas Anantha Krishnan Millani
+
+
 
 ## Sumário
 
@@ -18,9 +20,8 @@
 
 ## <a name="c1"></a>1. Introdução (Semana 01)
 
-*Preencha com até 300 palavras – sem necessidade de fonte.*
-*Descreva brevemente o sistema que você irá desenvolver.*
-
+Neste WAD (Web Application Development), será registrada toda a trajetória de desenvolvimento do meu projeto individual: um gerenciador de tarefas pensado para ajudar na organização e produtividade do dia a dia. A proposta é criar uma aplicação web simples e funcional, onde o usuário consiga cadastrar, editar, visualizar e excluir tarefas de forma prática. A ideia é que ele consiga acompanhar tudo o que precisa fazer sem se perder, organizando melhor o tempo e as prioridades.
+O projeto será construído utilizando tecnologias de front-end como HTML, CSS e JavaScript, que vão cuidar da parte visual e da interação com o usuário. Já no back-end, serão usadas tecnologias voltadas para banco de dados, permitindo que as tarefas e informações fiquem salvas de forma segura e possam ser acessadas sempre que necessário. Com isso, o sistema não será apenas visual, mas também funcional de verdade.
 ---
 
 ## <a name="c2"></a>2. Visão Geral da Aplicação Web
