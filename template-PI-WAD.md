@@ -27,8 +27,11 @@ O projeto será construído utilizando tecnologias de front-end como HTML, CSS e
 ## <a name="c2"></a>2. Visão Geral da Aplicação Web
 
 ### 2.1. Personas (Semana 01)
+![Persona Fabiola (1)](https://github.com/user-attachments/assets/a473730a-cf07-42bc-a13b-f6dfa041df39)
 
-*Posicione aqui sua(s) Persona(s) em forma de texto markdown com imagens, ou como imagem de template preenchido. Atualize esta seção ao longo do módulo se necessário.*
+
+
+
 
 ### 2.2. User Stories (Semana 01)
 
