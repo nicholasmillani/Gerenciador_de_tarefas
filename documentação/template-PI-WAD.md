@@ -35,7 +35,30 @@ O projeto será construído utilizando tecnologias de front-end como HTML, CSS e
 
 ### 2.2. User Stories (Semana 01)
 
-*Posicione aqui a lista de User Stories levantadas para o projeto. Siga o template de User Stories e utilize a referência USXX para numeração (US01, US02, US03, ...). Indique todas as User Stories mapeadas, mesmo aquelas que não forem implementadas ao longo do projeto. Não se esqueça de explicar o INVEST de 1 User Storie prioritária.*
+US01: Como estudante universitária,
+quero receber notificações de tarefas próximas do prazo,
+para que eu não perca datas importantes de entrega.
+
+US02:Como usuário iniciante,
+quero ter acesso a um tutorial rápido de como criar e gerenciar tarefas,
+para que eu possa começar a usar o site sem dificuldades.
+
+US03:Como pessoa com muitos compromissos pessoais e profissionais,
+quero filtrar minhas tarefas por prioridade,
+para que eu possa focar primeiro no que é mais urgente.
+
+US01 analisada:
+-Idependente: é idependente pois para ser adicionada nenhuma outra tarefa é necessária.
+
+-Negociavel: é negociavel pois o jeito que ele será implementado pode mudar,pode ser desde um vídeo explicativo ate um passo a passo em imagens.
+
+-Valiosa: é valiosa pois com um tutorial, a retenção de novos usuários é maior, além de ocorrer uma diminuição na curva de aprendizado.
+
+-Estimavel: é fácil de estimar, tendo em vista que essa não é uma tarefa muito grande.
+
+-Pequeno: é uma tarefa não muito complexa, portanto não deve consumir muito tempo, entretanto pode acabar sendo um pouco maior que uma sprint.
+
+-Testavel: é muito facil de ser testado, basta apenas alguns usuários novos.
 
 ---
 
