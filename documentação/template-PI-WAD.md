@@ -69,9 +69,34 @@ para que eu possa focar primeiro no que é mais urgente.
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-*Posicione aqui os diagramas de modelos relacionais do seu banco de dados, apresentando todos os esquemas de tabelas e suas relações. Utilize texto para complementar suas explicações, se necessário.*
+### **Modelo relacional:**
+#### TABELA usuários:
+- **id(pk)**
+- **nome TEXT**
+- **email TEXT**
+- **senha TEXT**
 
-*Posicione também o modelo físico com o Schema do BD (arquivo .sql)*
+#### TABELA prioridade:
+- **id(pk)**
+- **prioridade BOOLEAN**
+
+#### TABELA categoria:
+- **id(pk)**
+- **categoria TEXT**
+
+#### TABELA tasks:
+- **id(pk)**
+- **nome TEXT** 
+- **descricao TEXT**
+- **estatus BOOLEAN** 
+- **data_criacao** 
+- **usuario_id (fk -> usuários(id))**
+- **categoria_id (fk -> categoria(id))**
+- **prioridade_id (fk -> prioridade(id))**
+
+### **Modelo físico:**
+<img src="https://github.com/user-attachments/assets/812dd3a0-9cb2-4564-85a9-81df73a30bed" width="700" height="400">
+
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
