@@ -50,7 +50,7 @@ Como pessoa com muitos compromissos pessoais e profissionais,
 quero filtrar minhas tarefas por prioridade,
 para que eu possa focar primeiro no que é mais urgente.
 
-#### US01 analisada:
+#### US02 analisada:
 -Idependente é idependente pois para ser adicionada nenhuma outra tarefa é necessária.
 
 -Negociavel é negociavel pois o jeito que ele será implementado pode mudar,pode ser desde um vídeo explicativo ate um passo a passo em imagens.
