@@ -69,6 +69,11 @@ para que eu possa focar primeiro no que é mais urgente.
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
+### **Modelo conceitual**
+- Um usuário possui muitas tasks(1:N)
+- Uma task pode possuir uma categoria(1:1)
+- uma task pode ter pode ser prioritária(1:1)
+
 ### **Modelo relacional:**
 #### TABELA usuários:
 - **id(pk)**
@@ -78,7 +83,7 @@ para que eu possa focar primeiro no que é mais urgente.
 
 #### TABELA prioridade:
 - **id(pk)**
-- **prioridade BOOLEAN**
+- **prioridade TEXT** -> é texto pois pode ser baixo, médio e alta
 
 #### TABELA categoria:
 - **id(pk)**
@@ -95,7 +100,8 @@ para que eu possa focar primeiro no que é mais urgente.
 - **prioridade_id (fk -> prioridade(id))**
 
 ### **Modelo físico:**
-<img src="https://github.com/user-attachments/assets/812dd3a0-9cb2-4564-85a9-81df73a30bed" width="700" height="400">
+<img src="https://github.com/user-attachments/assets/98b36571-cb6f-4e66-8ba7-84035d372e7d" height=500px width=700px>
+
 
 
 ### 3.1.1 BD e Models (Semana 5)
