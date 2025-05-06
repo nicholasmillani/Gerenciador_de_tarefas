@@ -81,10 +81,6 @@ para que eu possa focar primeiro no que é mais urgente.
 - **email TEXT**
 - **senha TEXT**
 
-#### TABELA prioridade:
-- **id(pk)**
-- **prioridade TEXT** -> é texto pois pode ser baixo, médio e alta
-
 #### TABELA categoria:
 - **id(pk)**
 - **categoria TEXT**
@@ -93,14 +89,17 @@ para que eu possa focar primeiro no que é mais urgente.
 - **id(pk)**
 - **nome TEXT** 
 - **descricao TEXT**
-- **estatus BOOLEAN** 
-- **data_criacao** 
+- **finalizado BOOLEAN**
+- **prioridade TEXT**
+- **data_criacao TIMESTAMP** 
 - **usuario_id (fk -> usuários(id))**
 - **categoria_id (fk -> categoria(id))**
 - **prioridade_id (fk -> prioridade(id))**
 
 ### **Modelo físico:**
-<img src="https://github.com/user-attachments/assets/98b36571-cb6f-4e66-8ba7-84035d372e7d" height=500px width=700px>
+<img src="https://github.com/user-attachments/assets/d8a1551c-43fa-4b23-b8b4-c5868dfd28ae" height=500px width=900px>
+
+
 
 
 
