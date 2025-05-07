@@ -34,34 +34,26 @@ O projeto será construído utilizando tecnologias de front-end como HTML, CSS e
 
 
 ### 2.2. User Stories (Semana 01)
+ identificação | US01
+--- | ---
+User Story| Como estudante universitária,quero receber notificações de tarefas próximas do prazo,para que eu não perca datas importantes de entrega.
+Critério de aceite 01 | Receber notificações de tarefas perto de vencer
+Critério de aceite 02 | O prazo das tarefas tem que poder expirar.
 
-#### US01: 
-Como estudante universitária,
-quero receber notificações de tarefas próximas do prazo,
-para que eu não perca datas importantes de entrega.
+Identificação | US02
+--- | --- 
+User story | Como usuário iniciante,quero ter acesso a um tutorial rápido de como criar e gerenciar tarefas,para que eu possa começar a usar o site sem dificuldades.
+Critério de aceite 01 | O tutorial tem que ser fácil de se entender.
+Critério de aceite 02 | O site deve ter uma opção para abrir o tutorial.
 
-#### US02:
-Como usuário iniciante,
-quero ter acesso a um tutorial rápido de como criar e gerenciar tarefas,
-para que eu possa começar a usar o site sem dificuldades.
+ Identificação | US03
+--- | ---
+User story | Como pessoa com muitos compromissos pessoais e profissionais,quero filtrar minhas tarefas por prioridade,para que eu possa focar primeiro no que é mais urgente.
+Critério de aceite 01 | O filtro deve conseguir deixar as tarefas com mais prioridade em uma posição acima das com menor.
+Critério de aceite 02 | O filtro deve funcionar corretamente.
+INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra tarefa é necessária. **Negociavel:** é negociavel pois o jeito que ele será implementado pode mudar,pode ser desde um vídeo explicativo ate um passo a passo em imagens. **Valiosa:** é valiosa pois com um tutorial, a retenção de novos usuários é maior, além de ocorrer uma diminuição na curva de aprendizado. **Estimavel:** é fácil de estimar, tendo em vista que essa não é uma tarefa muito grande. **Pequeno:** é uma tarefa não muito complexa, portanto não deve consumir muito tempo, entretanto pode acabar sendo um pouco maior que uma sprint. **Testavel:** é muito facil de ser testado, basta apenas alguns usuários novos.
 
-#### US03:
-Como pessoa com muitos compromissos pessoais e profissionais,
-quero filtrar minhas tarefas por prioridade,
-para que eu possa focar primeiro no que é mais urgente.
 
-#### US02 analisada:
--Idependente é idependente pois para ser adicionada nenhuma outra tarefa é necessária.
-
--Negociavel é negociavel pois o jeito que ele será implementado pode mudar,pode ser desde um vídeo explicativo ate um passo a passo em imagens.
-
--Valiosa é valiosa pois com um tutorial, a retenção de novos usuários é maior, além de ocorrer uma diminuição na curva de aprendizado.
-
--Estimavel é fácil de estimar, tendo em vista que essa não é uma tarefa muito grande.
-
--Pequeno é uma tarefa não muito complexa, portanto não deve consumir muito tempo, entretanto pode acabar sendo um pouco maior que uma sprint.
-
--Testavel é muito facil de ser testado, basta apenas alguns usuários novos.
 
 ---
 
