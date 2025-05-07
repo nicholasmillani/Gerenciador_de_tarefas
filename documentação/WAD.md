@@ -87,9 +87,12 @@ INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra 
 - **data_criacao TIMESTAMP** 
 - **usuario_id (fk -> usuários(id))**
 - **categoria_id (fk -> categoria(id))**
+- **prazo DATE** 
 
 ### **Modelo físico:**
-<img src="https://github.com/user-attachments/assets/d8a1551c-43fa-4b23-b8b4-c5868dfd28ae" height=500px width=900px>
+<img src="https://github.com/user-attachments/assets/a01c00a9-9c20-4f52-9003-be460eee0992" height=500px width=700px>
+
+
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
