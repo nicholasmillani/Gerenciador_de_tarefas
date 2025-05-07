@@ -72,6 +72,7 @@ para que eu possa focar primeiro no que é mais urgente.
 ### **Modelo conceitual**
 - Um usuário possui muitas tasks(1:N)
 - Uma task pode possuir uma categoria(1:1)
+- Uma categoria pode pertencer a varias tasks(1:N)
 - uma task pode ter pode ser prioritária(1:1)
 
 ### **Modelo relacional:**
@@ -94,14 +95,9 @@ para que eu possa focar primeiro no que é mais urgente.
 - **data_criacao TIMESTAMP** 
 - **usuario_id (fk -> usuários(id))**
 - **categoria_id (fk -> categoria(id))**
-- **prioridade_id (fk -> prioridade(id))**
 
 ### **Modelo físico:**
 <img src="https://github.com/user-attachments/assets/d8a1551c-43fa-4b23-b8b4-c5868dfd28ae" height=500px width=900px>
-
-
-
-
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
