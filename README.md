@@ -5,9 +5,10 @@ Um gerenciador de tarefas completo com frontend e backend integrados. Ele permit
 ## 🚀 Tecnologias Utilizadas
 
 ### Frontend
-
+- HTML
+- CSS
+- JAVASCRIPT
 ### Backend
-
 ## 🧠 Funcionalidades
 
 - ✅ Criar tarefas
