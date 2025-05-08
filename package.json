@@ -1,0 +1,27 @@
+{
+  "name": "gerenciador_de_tarefas",
+  "version": "1.0.0",
+  "description": "Um gerenciador de tarefas completo com frontend e backend integrados. Ele permite criar, editar, excluir, marcar tarefas como concluídas e definir prioridades. Dessa forma, o usuário consegue organizar suas atividades de maneira mais eficiente, conciliando a vida pessoal e profissional.",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholasmillani/Gerenciador_de_tarefas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicholasmillani/Gerenciador_de_tarefas/issues"
+  },
+  "homepage": "https://github.com/nicholasmillani/Gerenciador_de_tarefas#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
