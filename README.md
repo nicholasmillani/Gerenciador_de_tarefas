@@ -37,6 +37,7 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 ├── server.js              
 └── rest.http              
 ```
+
 ##  Funcionalidades
 
 -  Criar tarefas
@@ -45,6 +46,11 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 -  Marcar como concluída ou pendente
 -  Filtrar por status
 -  Priorizar tarefas
+
+## Como rodar localmente
+### 1: Clone esse repositório
+### 2: instale a dependencia(npm i)
+### 3: Coloque esse comando no terminal(node server.js)
 
 ##  Contato
 Desenvolvido por **Nicholas A.K Millani**
