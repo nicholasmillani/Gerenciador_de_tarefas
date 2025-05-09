@@ -9,7 +9,8 @@ Um gerenciador de tarefas completo com frontend e backend integrados. Ele permit
 - CSS
 - JAVASCRIPT
 ### Backend
-
+- PostgreSQL
+- SQL
 ## Estrutura de pastas:
 A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas estão a baixo:
 ```
