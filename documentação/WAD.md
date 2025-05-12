@@ -117,10 +117,10 @@ Wireframe é uma representação simplificada de uma página web, tela de sistem
 #### Tela de login:
 ![login](https://github.com/user-attachments/assets/5aa74dce-6d5a-45ba-ba8a-6a3243c4142f)
 
-#### Tela de tarefas
+#### Tela de tarefas(US03):
 ![tela principal](https://github.com/user-attachments/assets/c8eeaef3-e032-4218-b45b-3f6c1fb0c777)
 
-#### popup de clique em tarefa
+#### popup de clique em tarefa(US01):
 ![clique em tarefa](https://github.com/user-attachments/assets/0ba30b09-f1dc-475a-8bc6-fb2068f250cb)
 
 
