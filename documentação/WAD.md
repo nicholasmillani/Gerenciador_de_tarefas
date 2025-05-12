@@ -92,10 +92,6 @@ INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra 
 ### **Modelo físico:**
 <img src="https://github.com/user-attachments/assets/a01c00a9-9c20-4f52-9003-be460eee0992" height=500px width=700px>
 
-Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Wireframe-site-de-tarefas?node-id=1-122&t=Ti0a0eFgdQrkGAo0-0
-
-
-
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
 
@@ -122,6 +118,8 @@ Wireframe é uma representação simplificada de uma página web, tela de sistem
 
 #### popup de clique em tarefa(US01):
 ![clique em tarefa](https://github.com/user-attachments/assets/0ba30b09-f1dc-475a-8bc6-fb2068f250cb)
+
+Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Wireframe-site-de-tarefas?node-id=1-122&t=Ti0a0eFgdQrkGAo0-0
 
 
 
