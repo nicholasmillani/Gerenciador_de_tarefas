@@ -92,6 +92,8 @@ INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra 
 ### **Modelo físico:**
 <img src="https://github.com/user-attachments/assets/a01c00a9-9c20-4f52-9003-be460eee0992" height=500px width=700px>
 
+Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Wireframe-site-de-tarefas?node-id=1-122&t=Ti0a0eFgdQrkGAo0-0
+
 
 
 ### 3.1.1 BD e Models (Semana 5)
