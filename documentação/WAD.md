@@ -78,15 +78,19 @@ INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra 
 - **id(pk)**
 - **categoria TEXT**
 
+#### Tabela prioridade:
+- **id(pk)**
+- **prioridade TEXT**
+
 #### TABELA tasks:
 - **id(pk)**
 - **nome TEXT** 
 - **descricao TEXT**
 - **finalizado BOOLEAN**
-- **prioridade TEXT**
+- **prioridade_id (fk -> prioridade.id**
 - **data_criacao TIMESTAMP** 
-- **usuario_id (fk -> usuários(id))**
-- **categoria_id (fk -> categoria(id))**
+- **usuario_id (fk -> usuários.id)**
+- **categoria_id (fk -> categoria.id)**
 - **prazo DATE** 
 
 ### **Modelo físico:**
