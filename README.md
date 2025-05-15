@@ -17,15 +17,17 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 ├── config/               
 │   └── database.js
 ├── controllers/           
-│   └── HomeController.js
+│   └── TarefaController.js
 ├── models/                
-│   └── User.js
+│   └── UserModel.js
 ├── routes/                
 │   └── index.js
 ├── services/             
 │   └── userService.js
 ├── assets/                
-├── scripts/               
+├── scripts/
+│   └── init.sql
+│   └── runSQLScripts.js         
 ├── styles/                
 ├── tests/                 
 │   └── example.test.js
@@ -50,7 +52,7 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 
 ## Como rodar localmente
 ### 1: Clone esse repositório
-### 2: instale a dependencia(npm i)
+### 2: instale as dependências(npm i)
 ### 3: Coloque esse comando no terminal(node server.js)
 
 ##  Contato
