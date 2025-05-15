@@ -90,7 +90,8 @@ INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra 
 - **prazo DATE** 
 
 ### **Modelo físico:**
-<img src="https://github.com/user-attachments/assets/a01c00a9-9c20-4f52-9003-be460eee0992" height=500px width=700px>
+<img src="https://github.com/user-attachments/assets/67e0bdd6-1469-4c85-9c20-17839f6753d3" height=500px width=700px>
+
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
