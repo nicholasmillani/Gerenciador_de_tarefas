@@ -1,10 +1,12 @@
+// routes/index.js
 const express = require('express');
 const router = express.Router();
+const TarefaController = require('../controllers/TarefaController');
 
-// Defina aqui suas rotas, por exemplo:
-router.get('/', (req, res) => {
-  res.send('Rota raiz funcionando!');
-});
+// Rotas para o CRUD de tarefas
+router.post('/tarefas', TarefaController.criarTarefa);
+router.get('/tarefas', TarefaController.listarTarefas);
+router.put('/tarefas/:id', TarefaController.editarTarefa);
+router.delete('/tarefas/:id', TarefaController.excluirTarefa);
 
-// **Importante:** ao final, exporte o router:
 module.exports = router;
