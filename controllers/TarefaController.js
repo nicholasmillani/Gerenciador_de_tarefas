@@ -1,4 +1,4 @@
-// controllers/TarefaController.js
+// Importa as config
 const pool = require('../config/database');
 
 // Criar uma nova tarefa
