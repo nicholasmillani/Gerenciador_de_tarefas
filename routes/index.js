@@ -1,3 +1,5 @@
+//Essa parte é a API!!!
+
 const express = require('express')
 const router = express.Router();
 const usuarioController = require('../controllers/TarefaController');
@@ -12,9 +14,9 @@ router.get("/tasks/:id", usuarioController.obterTask);
 router.post('/tasks', usuarioController.criarTask);
 
 //endpoint para deletar task
-router.post('/tasks/:nome_task', usuarioController.deletarTask);
+router.delete('/tasks/:nome_task', usuarioController.deletarTask);
 
 //endpoint para atualizar task
-router.post('/usuarios', usuarioController.atualizarInfo);
+router.put('/usuarios', usuarioController.atualizarInfo);
 
 module.exports = router;
