@@ -1,69 +1,79 @@
-// Importa as config
-const pool = require('../config/database');
+const taskModel = require('../models/taskModel'); // Importa o modelo de usuários
 
-// Criar uma nova tarefa
-exports.criarTarefa = async (req, res) => {
-  const { nome, descricao } = req.body;
-
-  const query = 'INSERT INTO tarefas (nome, descricao) VALUES ($1, $2) RETURNING *';
-  const values = [nome, descricao];
-
-  try {
-    const result = await pool.query(query, values);
-    const tarefa = result.rows[0];
-    res.status(201).json(tarefa);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-// Listar todas as tarefas
-exports.listarTarefas = async (req, res) => {
-  const query = 'SELECT * FROM tarefas';
-
-  try {
-    const result = await pool.query(query);
-    res.status(200).json(result.rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-// Editar uma tarefa
-exports.editarTarefa = async (req, res) => {
-  const { id } = req.params;
-  const { nome, descricao, status } = req.body;
-
-  const query = `
-    UPDATE tarefas SET nome = $1, descricao = $2, status = $3, updated_at = CURRENT_TIMESTAMP
-    WHERE id = $4 RETURNING *`;
-  const values = [nome, descricao, status, id];
-
-  try {
-    const result = await pool.query(query, values);
-    if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'Tarefa não encontrada' });
+const usuarioController = {
+  // Lista todos os usuários
+  async listarTasks(req, res) {
+    try {
+      const usuarios = await taskModel.getAll(); // Busca todos os usuários no banco
+      return res.status(200).json(usuarios); // Retorna os usuários com status 200
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Erro ao listar usuários' }); // Erro interno
     }
-    res.status(200).json(result.rows[0]);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
+  },
 
-// Excluir uma tarefa
-exports.excluirTarefa = async (req, res) => {
-  const { id } = req.params;
+  // Busca um usuário pelo ID
+  async obterTask(req, res) {
+    try {
+      const { id } = req.params; // Pega o id da URL
+      const usuario = await taskModel.getById(id); // Busca o usuário
 
-  const query = 'DELETE FROM tarefas WHERE id = $1 RETURNING *';
-  const values = [id];
+      if (!usuario) {
+        return res.status(404).json({ erro: 'Usuário não encontrado' }); // Se não achou, erro 404
+      }
 
-  try {
-    const result = await pool.query(query, values);
-    if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'Tarefa não encontrada' });
+      return res.status(200).json(usuario); // Retorna o usuário encontrado
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Erro ao buscar o usuário' });
     }
-    res.status(200).json({ message: 'Tarefa excluída com sucesso' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  },
+
+  // Cria um novo usuário
+  async criarTask(req, res) {
+    try {
+      const novoUsuario = await taskModel.create(req.body); // Cria com base no corpo da requisição
+      return res.status(201).json(novoUsuario); // Retorna o usuário criado com status 201
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Erro ao criar usuário' });
+    }
+  },
+
+  // Deleta um usuário pelo ID
+  async deletarTask(req, res) {
+    try {
+      const { id } = req.params; // Pega o id da URL
+      const deletado = await taskModel.delete(id); // Chama o delete no model
+
+      if (!deletado) {
+        return res.status(404).json({ erro: 'Usuário não encontrado para deletar' });
+      }
+
+      return res.status(200).json(deletado); // Retorna o usuário deletado
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Erro ao deletar o usuário' });
+    }
+  },
+
+  // Atualiza informações de um usuário
+  async atualizarInfo(req, res) {
+    try {
+      const { id } = req.params; // Pega o ID da URL
+      const { nome } = req.body; // Pega o novo nome do corpo da requisição
+      const atualizado = await taskModel.update(nome, id); // Chama o update no model
+
+      if (!atualizado) {
+        return res.status(404).json({ erro: 'Usuário não encontrado para atualizar' });
+      }
+
+      return res.status(200).json(atualizado); // Retorna o usuário atualizado
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Não foi possível atualizar a informação' });
+    }
   }
 };
+
+module.exports = usuarioController; // Exporta o controller para ser usado nas rotas

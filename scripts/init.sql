@@ -19,7 +19,7 @@ CREATE TABLE tasks(
     id SERIAL PRIMARY KEY,
     nome_task VARCHAR,
     descricao VARCHAR,
-    finalizada BOOLEAN,
+    finalizada BOOLEAN DEFAULT FALSE,
     prioridade_id INTEGER REFERENCES prioridade(id),
     data_criacao TIMESTAMP,
     prazo DATE,
