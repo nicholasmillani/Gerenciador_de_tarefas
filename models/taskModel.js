@@ -3,17 +3,17 @@ const db = require('../config/database'); // Importa a conexão com o banco de d
 class Task {
   // Método para buscar todas as tasks da tabela
   static async getAll() {
-    const result = await db.query('SELECT * FROM tasks'); // Executa SELECT no banco
-    return result.rows; // Retorna todas as linhas encontradas
+    const result = await db.query('SELECT * FROM tasks'); 
+    return result.rows; 
   }
 
   // Busca uma task pelo ID do usuário
   static async getById(usuario_id) {
     const result = await db.query(
       'SELECT * FROM tasks WHERE usuario_id = $1',
-      [usuario_id] // Passa o ID como parâmetro para evitar SQL Injection
+      [usuario_id] 
     );
-    return result.rows[0]; // Retorna apenas a primeira task encontrada
+    return result.rows[0]; 
   }
 
   // Cria uma nova task
@@ -21,10 +21,10 @@ class Task {
     const result = await db.query(
       `INSERT INTO tasks (nome_task, descricao, prazo, usuario_id, categoria_id)
        VALUES ($1, $2, $3, $4, $5)
-       RETURNING *`, // Retorna a task recém-criada
+       RETURNING *`, 
       [nome_task, descricao, prazo, usuario_id, categoria_id]
     );
-    return result.rows[0]; // Retorna a linha inserida
+    return result.rows[0]; 
   }
 
   // Deleta uma task pelo ID do usuário
@@ -33,7 +33,7 @@ class Task {
       'DELETE FROM tasks WHERE usuario_id = $1 RETURNING *',
       [usuario_id]
     );
-    return result.rows[0]; // Retorna a task deletada (ou null se não encontrou)
+    return result.rows[0]; 
   }
 
   // Atualiza o nome da task pelo ID da task
@@ -42,7 +42,7 @@ class Task {
       'UPDATE tasks SET nome_task = $1 WHERE id = $2 RETURNING *',
       [nome_task, id]
     );
-    return result.rows[0]; // Retorna a task atualizada
+    return result.rows[0]; 
   }
 }
 
