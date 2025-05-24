@@ -8,30 +8,30 @@ class Task {
   }
 
   // Busca uma task pelo ID do usuário
-  static async getById(usuario_id) {
+  static async getById(usuarios_id) {
     const result = await db.query(
-      'SELECT * FROM tasks WHERE usuario_id = $1',
-      [usuario_id] 
+      'SELECT * FROM tasks WHERE usuarios_id = $1',
+      [usuarios_id] 
     );
     return result.rows[0]; 
   }
 
   // Cria uma nova task
-  static async create(nome_task, descricao, prazo, usuario_id, categoria_id) {
-    const result = await db.query(
-      `INSERT INTO tasks (nome_task, descricao, prazo, usuario_id, categoria_id)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING *`, 
-      [nome_task, descricao, prazo, usuario_id, categoria_id]
-    );
-    return result.rows[0]; 
-  }
+  static async create(nome_task, descricao, prazo, usuarios_id, categoria_id) {
+  const result = await db.query(
+    `INSERT INTO tasks (nome_task, descricao, prazo, usuarios_id, categoria_id)
+     VALUES ($1, $2, $3, $4, $5)
+     RETURNING *`, 
+    [nome_task, descricao, prazo, usuarios_id, categoria_id]
+  );
+  return result.rows[0]; 
+}
 
   // Deleta uma task pelo ID do usuário
-  static async delete(usuario_id) {
+  static async delete(usuarios_id) {
     const result = await db.query(
-      'DELETE FROM tasks WHERE usuario_id = $1 RETURNING *',
-      [usuario_id]
+      'DELETE FROM tasks WHERE usuarios_id = $1 RETURNING *',
+      [usuarios_id]
     );
     return result.rows[0]; 
   }
