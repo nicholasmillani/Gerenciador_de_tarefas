@@ -98,18 +98,26 @@ INVEST | **Idependente:** é idependente pois para ser adicionada nenhuma outra 
 
 
 ### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
+Models são a parte do código que interagem diretamente com o banco de dados, o gerenciador de tarefas contará com 4 deles:
+#### Tasks model: 
+Esses códigos serão responsáveis pela parte de gerenciamento das tasks. Ele possibilita criar, deletar, atualizar e consultar as tarefas.
+
+#### Usuários model:
+Esses códigos tem a mesma função do task model, entretanto ele é responsável pelos usuários. Ele torna possivel criar, atualizar, deletar e consultar, desse modo alterando a tabela do banco de dados.
+
+#### Categorias model:
+Aqui ocorrerá todas as funções para modificar/consultar a tabela de categorias. Ela torna possivel consultar, criar, deletar 
+dados das tabelas.
+
+#### Prioridade model: 
+Aqui permite a interação com a prioridade. Esse model só serve para consultar qual a prioridade pelo id.
 
 ### 3.2. Arquitetura (Semana 5)
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+<img src='https://github.com/user-attachments/assets/1f2c7fac-9b98-42e0-9e0c-28fb1998d838'>
+O view chama uma requisição http(get, post, delete, put), os controllers a analisam e aplicam as regras de negócio, agora essa requisição chega nos models, que interagem diretamente com o banco, e executam efetivamente a requisição.
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+**Link para o figma: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Site-individual?node-id=0-1&p=f&t=n19Lr4doCdtDZ7pM-0**
 
 ### 3.3. Wireframes (Semana 03)
 
