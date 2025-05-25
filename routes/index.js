@@ -4,6 +4,9 @@ const express = require('express')
 const router = express.Router();
 const taskController = require('../controllers/TarefaController');
 const userController = require('../controllers/usuarioController');
+const categoriaController = require('../controllers/categoriaController');
+const prioridadeController = require('../controllers/prioridadeController');
+
 
 //endpoint para listar todas as tasks
 router.get('/tasks', taskController.listarTasks);
@@ -21,6 +24,7 @@ router.delete('/tasks/:nome_task', taskController.deletarTask);
 router.put('/tasks', taskController.atualizarInfo);
 
 
+//endpoints dos usuarios
 router.get('/usuarios', userController.listarUsuarios);
 
 router.get('/usuarios/:id', userController.buscarPorId);
@@ -34,5 +38,21 @@ router.delete('/usuarios/delete', userController.deletarUsuario);
 router.put('/usuarios/:attE', userController.atualizarEmail);
 
 router.put('/usuarios/:attS', userController.atualizarSenha);
+
+
+//endpoints prioridades
+router.get('/listar', prioridadeController.listarPrioridades)
+
+router.get('/listar/:id', prioridadeController.listarPorId)
+
+
+//endpoints categorias
+router.get('/categorias', categoriaController.listarCat)
+
+router.get('/categorias/:id', categoriaController.buscarId)
+
+router.post('/categorias', categoriaController.criarCat)
+
+router.delete('/categorias/:id', categoriaController.deletarCat)
 
 module.exports = router;

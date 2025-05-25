@@ -6,7 +6,8 @@ const taskController = {
     try {
       const tasks = await taskModel.getAll(); // Busca todos os usuários no banco
       return res.status(200).json(tasks); // Retorna os usuários com status 200
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       return res.status(500).json({ erro: 'Erro ao listar usuários' }); // Erro interno
     }
@@ -15,7 +16,7 @@ const taskController = {
   // Busca um usuário pelo ID
   async obterTask(req, res) {
     try {
-      const { id } = req.params; // Pega o id da URL
+      const {id} = req.params; // Pega o id da URL
       const tasks = await taskModel.getById(id); // Busca o usuário
 
       if (!tasks) {
@@ -23,7 +24,8 @@ const taskController = {
       }
 
       return res.status(200).json(tasks); // Retorna o usuário encontrado
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       return res.status(500).json({ erro: 'Erro ao buscar o usuário' });
     }
@@ -51,7 +53,8 @@ const taskController = {
         return res.status(404).json({ erro: 'Usuário não encontrado para deletar' });
       }
       return res.status(200).json(deletado); // Retorna o usuário deletado
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       return res.status(500).json({ erro: 'Erro ao deletar o usuário' });
     }
@@ -69,7 +72,8 @@ const taskController = {
       }
 
       return res.status(200).json(atualizado); // Retorna o usuário atualizado
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       return res.status(500).json({ erro: 'Não foi possível atualizar a informação' });
     }

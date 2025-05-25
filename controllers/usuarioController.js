@@ -27,7 +27,7 @@ const usuarioController = {
 
     async buscarPorNome(req, res) {
         try {
-            const { nome } = req.params;
+            const { nome } = req.body;
             const usuarios = await usuarioModel.buscarPorNome(nome);
             if (!usuarios) {
                 return res.status(404).json({ erro: 'Usuário não encontrado' });
