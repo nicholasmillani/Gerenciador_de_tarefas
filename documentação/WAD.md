@@ -146,6 +146,10 @@ Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvn
 #### Tela principal:
 ![Prototipo de alta fidelidade (1)](https://github.com/user-attachments/assets/83e46ad9-462b-4838-9941-72474ce7843b)
 
+#### Tela de login:
+![Prototipo tela de login](https://github.com/user-attachments/assets/453d8392-6a7e-4a4a-a6cf-69c7e04b8fe6)
+
+
 Link para o figma que contem a imagem: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Site-individual?node-id=20-108&t=pAAs5NtZFk4eueKo-0
 
 
