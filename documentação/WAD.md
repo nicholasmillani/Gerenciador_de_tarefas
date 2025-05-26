@@ -137,17 +137,83 @@ Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvn
 
 
 ### 3.4. Guia de estilos (Semana 05)
+![guia de estilo](https://github.com/user-attachments/assets/b2a5918f-6005-4987-bc75-1e6fe33260ae)
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
+#### Tela principal:
+![Prototipo de alta fidelidade (1)](https://github.com/user-attachments/assets/83e46ad9-462b-4838-9941-72474ce7843b)
+
+#### Tela de login:
+![Prototipo tela de login](https://github.com/user-attachments/assets/453d8392-6a7e-4a4a-a6cf-69c7e04b8fe6)
+
+#### Popup da task:
+![Popup da task](https://github.com/user-attachments/assets/67e21d26-d9d2-40d0-8de2-3bd61a734231)
+
+
+
+Link para o figma que contem a imagem: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Site-individual?node-id=20-108&t=pAAs5NtZFk4eueKo-0
+
+
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+#### GET /tasks
+Descrição: Lista todas as tasks cadastradas
+
+#### GET /tasks/:id
+Descrição: Retorna os dados de uma tarefa específica pelo ID.
+
+#### POST /tasks
+Descrição: Cria uma nova tarefa.
+
+#### DELETE /tasks/:nome_task
+Descrição: Deleta uma tarefa com base no nome
+
+#### PUT /tasks
+Descrição: Atualiza as informações de uma tarefa.
+
+#### GET /usuarios
+Descrição: Lista todos os usuários cadastrados.
+
+#### GET /usuarios/:id
+Descrição: Retorna os dados de um usuário pelo ID.
+
+#### GET /usuarios/nome/:nome
+Descrição: Retorna os dados de um usuário pelo ID.
+
+#### POST /usuarios
+Descrição: Cria um novo usuário.
+
+#### DELETE /usuarios/delete
+Descrição: Deleta um usuário.
+
+#### PUT /usuarios/:attE
+Descrição: Atualiza o e-mail de um usuário.
+
+#### PUT /usuarios/:attS
+Descrição: Atualiza a senha de um usuário.
+
+#### GET /categorias
+Descrição: Lista todas as categorias cadastradas.
+
+#### GET /categorias/:id
+Descrição: Retorna uma categoria específica pelo ID.
+
+#### POST /categorias
+Descrição: Cria uma nova categoria.
+
+#### DELETE /categorias/:id
+Descrição: Remove uma categoria pelo ID.
+
+#### GET /prioridades
+Descrição: Lista todas as prioridades disponíveis (ex: alta, média, baixa).
+
+#### GET /prioridades/:id
+Descrição: Retorna uma prioridade específica pelo ID.
+
 
 ### 3.7 Interface e Navegação (Semana 07)
 
