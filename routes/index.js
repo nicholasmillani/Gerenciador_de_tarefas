@@ -6,7 +6,8 @@ const taskController = require('../controllers/TarefaController');
 const userController = require('../controllers/usuarioController');
 const categoriaController = require('../controllers/categoriaController');
 const prioridadeController = require('../controllers/prioridadeController');
-
+const app = express();
+const path = require('path');
 
 //endpoint para listar todas as tasks
 router.get('/tasks', taskController.listarTasks);
@@ -29,7 +30,7 @@ router.get('/usuarios', userController.listarUsuarios);
 
 router.get('/usuarios/:id', userController.buscarPorId);
 
-router.get('/usuarios/:nome', userController.buscarPorNome)
+router.get('/usuarios/nome/:nome', userController.buscarPorNome)
 
 router.post('/usuarios', userController.criarUsuario);
 
@@ -41,9 +42,9 @@ router.put('/usuarios/:attS', userController.atualizarSenha);
 
 
 //endpoints prioridades
-router.get('/listar', prioridadeController.listarPrioridades)
+router.get('/prioridades', prioridadeController.listarPrioridades)
 
-router.get('/listar/:id', prioridadeController.listarPorId)
+router.get('/prioridades/:id', prioridadeController.listarPorId)
 
 
 //endpoints categorias
@@ -56,3 +57,5 @@ router.post('/categorias', categoriaController.criarCat)
 router.delete('/categorias/:id', categoriaController.deletarCat)
 
 module.exports = router;
+
+
