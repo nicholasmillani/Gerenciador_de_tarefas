@@ -137,8 +137,8 @@ Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvn
 
 
 ### 3.4. Guia de estilos (Semana 05)
+![guia de estilo](https://github.com/user-attachments/assets/b2a5918f-6005-4987-bc75-1e6fe33260ae)
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
