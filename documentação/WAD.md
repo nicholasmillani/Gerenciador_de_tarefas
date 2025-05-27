@@ -137,7 +137,11 @@ Link para o figma contendo as imagens: https://www.figma.com/design/GSg8ScaVHAvn
 
 
 ### 3.4. Guia de estilos (Semana 05)
-![guia de estilo](https://github.com/user-attachments/assets/b2a5918f-6005-4987-bc75-1e6fe33260ae)
+![guia de estilo (1)](https://github.com/user-attachments/assets/03238d5d-a441-44cb-8222-beace8040918)
+
+Link para o figma contendo a imagem: https://www.figma.com/design/GSg8ScaVHAvnHnH9Wqd7tk/Wireframe-site-de-tarefas?node-id=1-122&t=Ti0a0eFgdQrkGAo0-0
+
+
 
 
 
