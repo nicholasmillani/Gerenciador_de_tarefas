@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const rotas = require('./routes/index');
+const usuarioController = require('./controllers/usuarioController')
 
 // Middleware para ler JSON no corpo da requisição
 app.use(express.json());
