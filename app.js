@@ -19,6 +19,6 @@ app.listen(PORT, () => {
 app.set('view engine', 'ejs'); 
 app.set('views', 'views'); // pasta onde estão os arquivos de view
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+app.get('/index', usuarioController.listarUsuarios);
+
+//app.get('/usuarios', usuarioController.listarUsuarios)

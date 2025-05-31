@@ -4,7 +4,7 @@ const usuarioController = {
     async listarUsuarios(req, res) {
         try {
             const usuarios = await usuarioModel.buscarUsuarios();
-            return res.status(200).json(usuarios);
+            return res.render('index', {usuarios});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao listar os usuários' });
@@ -18,7 +18,7 @@ const usuarioController = {
             if (!usuario) {
                 return res.status(404).json({ error: "Usuário não encontrado" });
             }
-            return res.status(200).json(usuario);
+            return res.render('usuarios', {usuario});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao buscar usuário' });
@@ -32,7 +32,7 @@ const usuarioController = {
             if (!usuarios) {
                 return res.status(404).json({ erro: 'Usuário não encontrado' });
             }
-            return res.status(200).json(usuarios);
+            return res.render('usuarios', {usuarios});
         } catch (error) {
             console.error(error);
             res.status(500).json({ erro: 'Erro ao buscar usuário' });
@@ -43,7 +43,7 @@ const usuarioController = {
         try {
             const { nome, email, senha } = req.body;
             const usuario = await usuarioModel.criarUsuario(nome, email, senha);
-            return res.status(201).json(usuario);
+            return res.render('usuarios', {usuario});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao criar usuário' });
@@ -57,7 +57,7 @@ const usuarioController = {
             if (!usuario) {
                 return res.status(404).json({ erro: 'Usuário não encontrado' });
             }
-            return res.status(200).json({ mensagem: 'Usuário deletado com sucesso' });
+            return res.render('usuarios', {usuario});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao deletar usuário' });
@@ -69,7 +69,7 @@ const usuarioController = {
             const { id } = req.params;
             const { email } = req.body;
             const usuario = await usuarioModel.atualizarEmail(email, parseInt(id));
-            return res.status(200).json(usuario);
+            return res.render('usuarios', {usuario});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao atualizar o email' });
@@ -81,7 +81,7 @@ const usuarioController = {
             const { id } = req.params;
             const { senha } = req.body;
             const usuario = await usuarioModel.atualizarSenha(senha, parseInt(id));
-            return res.status(200).json(usuario);
+            return res.render('usuarios', {usuario});
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao atualizar senha' });
