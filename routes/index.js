@@ -39,6 +39,8 @@ router.put('/usuarios/:attE', userController.atualizarEmail);
 
 router.put('/usuarios/:attS', userController.atualizarSenha);
 
+router.post('/login', userController.login)
+
 
 //endpoints prioridades
 router.get('/prioridades', prioridadeController.listarPrioridades)

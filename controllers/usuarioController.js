@@ -110,6 +110,24 @@ const usuarioController = {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao atualizar senha' });
         }
+    },
+    async login(req, res){
+        try{
+            const {email, senha} = req.body;
+            const usuario = await usuarioModel.autenticarUsuario(email, senha);
+            if(!usuario){
+               return res.status(401).json({erro:'Acesso negado'})
+            }
+            
+            // Remover a senha antes de enviar para o cliente
+            delete usuario.senha;
+
+            return res.status(200).json(usuario);
+        }
+        catch(error){
+            console.error(error)
+            res.status(500).json({erro: 'erro interno do servidor, nao foi possivel achar usuario'})
+        }
     }
 };
 
