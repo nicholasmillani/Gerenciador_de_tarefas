@@ -6,8 +6,7 @@ const taskController = require('../controllers/TarefaController');
 const userController = require('../controllers/usuarioController');
 const categoriaController = require('../controllers/categoriaController');
 const prioridadeController = require('../controllers/prioridadeController');
-const app = express();
-const path = require('path');
+
 
 //endpoint para listar todas as tasks
 router.get('/tasks', taskController.listarTasks);
