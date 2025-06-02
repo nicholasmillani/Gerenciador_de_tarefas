@@ -15,10 +15,8 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}, localhost:${PORT}`);
 });
 
-
+app.use(express.static('public')); // pasta onde está seu CSS
 app.set('view engine', 'ejs'); 
 app.set('views', 'views'); // pasta onde estão os arquivos de view
 
-app.get('/index', usuarioController.listarUsuarios);
-
-//app.get('/usuarios', usuarioController.listarUsuarios)
+app.get('/', usuarioController.listarUsuarios);

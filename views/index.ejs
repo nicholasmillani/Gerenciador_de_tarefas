@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina inicial</title>
+    <link rel="stylesheet" href="/stylesheets/stylelogin.css">
+    
 </head>
 <body>
-    <h1>Pagina inicial</h1>
-    <%for(usuario of usuarios){%>
-    <p>Seja bem vindo ao teste de html<%=usuario.nome%></p>
-    <%}%>
+    <div class="container">
+
+        <div class="esquerda">
+            <img src="images/livro.png" alt="Foto de livro" id="livro">
+            <p id="inicio"><strong>Bem vindo ao nichotasks, seu assistente no gerenciamento das suas tarefas</strong></p>
+        </div>
+
+        <div class="direita">
+            <p><img src="/images/logosite2.png" alt="Logo do nichotasks" id="logologin"></p>
+
+            <p><input type="text" placeholder="email" class="input"></p>
+
+            <p><input type="text" placeholder="senha" class="input"></p>
+            
+            <p><button class="button">Login</button></p>
+
+            <a href="">Esqueci minha senha</a>
+
+            <p><button class="button">Criar conta</button></p>
+        </div>
+    
+    </div>
+
+    
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 </html>
