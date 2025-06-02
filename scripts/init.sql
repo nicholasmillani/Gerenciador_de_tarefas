@@ -26,4 +26,5 @@ CREATE TABLE tasks(
     usuarios_id INTEGER REFERENCES usuarios(id),
     categoria_id INTEGER REFERENCES categorias(id)
 );
-
+INSERT INTO prioridade(prioridade)
+VALUES('Baixa'),('Média'),('Alta');

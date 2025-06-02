@@ -5,6 +5,7 @@ const usuarioController = require('./controllers/usuarioController')
 
 // Middleware para ler JSON no corpo da requisição
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Rotas da API com prefixo /api
 app.use('/api', rotas);
@@ -19,4 +20,6 @@ app.use(express.static('public')); // pasta onde está seu CSS
 app.set('view engine', 'ejs'); 
 app.set('views', 'views'); // pasta onde estão os arquivos de view
 
-app.get('/', usuarioController.listarUsuarios);
+app.get('/', usuarioController.renderizarLogin);
+app.get('/criarConta', usuarioController.renderizarCriarConta);
+app.post('/criarConta', usuarioController.criarUsuario);

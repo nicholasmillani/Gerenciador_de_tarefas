@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina inicial</title>
+    <link rel="stylesheet" href="/stylesheets/stylelogin.css">
+    
+</head>
+<body>
+    <div class="container">
+
+        <div class="esquerda">
+            <img src="images/livro.png" alt="Foto de livro" id="livro">
+            <p id="inicio"><strong>Bem vindo ao nichotasks, seu assistente no gerenciamento das suas tarefas.</strong></p>
+        </div>
+
+        <div class="direita">
+            <h2>Coloque suas informações para criar a conta</h2>
+            
+            <form action="/api/usuarios" method="POST">
+
+                <p><input type="text" name="nome" placeholder="nome" class="input"></p>
+
+                <p><input type="email" name="email" placeholder="Email" class="input"></p>
+                
+                <p><input type="password" name="senha" placeholder="Senha" class="input"></p>
+                
+                <p><button type="submit" class="button">Criar conta</button></p>
+            
+            </form>
+            
+            <p>Já tem conta?<a href="/">Clique aqui</a></p>
+        </div>
+    
+    </div>
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</body>
+</html>
