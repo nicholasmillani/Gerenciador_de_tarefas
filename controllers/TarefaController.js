@@ -77,7 +77,8 @@ const taskController = {
       console.error(error);
       return res.status(500).json({ erro: 'Não foi possível atualizar a informação' });
     }
-  }
+  },
+  
 };
 
 module.exports = taskController; // Exporta o controller para ser usado nas rotas

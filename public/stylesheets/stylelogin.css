@@ -4,6 +4,11 @@
     url('caminho/para/o/arquivo.woff2') format('woff2'); /* Formato WOFF2 */
      
 }
+body{
+    margin: 0;
+    display: flex; /* Para colocar a sidebar ao lado do conteúdo */
+    height: 100vh;  /* Importante para garantir 100% da altura */
+}
 .container {
   display: flex;
   height: 100vh;
@@ -75,6 +80,7 @@ p#inicio{
 .button:hover{
   background-color:#1f5e9c ;
 }
-
-
+body{
+  background-color: #C0DEFF;
+}
 

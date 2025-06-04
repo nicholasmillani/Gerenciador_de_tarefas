@@ -10,25 +10,6 @@ const usuarioController = {
             return res.status(500).json({ erro: 'Erro ao buscar usuarios' });
         }
     },
-      async renderizarLogin(req, res) {
-        try {
-            return res.render('Login');
-        } 
-        catch (error) {
-            console.error(error);
-            return res.status(500).json({ erro: 'Erro ao renderizar o login' });
-        }
-    },
-    async renderizarCriarConta(req, res) {
-        try {
-            return res.render('CriarConta');
-        } 
-        catch (error) {
-            console.error(error);
-            return res.status(500).json({ erro: 'Erro ao renderizar o Criar conta' });
-        }
-    },
-
     async buscarPorId(req, res) {
         try {
             const {id} = req.params;
@@ -116,17 +97,19 @@ const usuarioController = {
             const {email, senha} = req.body;
             const usuario = await usuarioModel.autenticarUsuario(email, senha);
             if(!usuario){
-               return res.status(401).json({erro:'Acesso negado'})
+               return res.status(401).redirect('/login',{erro:'Acesso negado'})
             }
+            req.session.usuario = {
+                id: usuario.id,
+                nome: usuario.nome,
+                email: usuario.email
+            };
             
-            // Remover a senha antes de enviar para o cliente
-            delete usuario.senha;
-
-            return res.status(200).json(usuario);
+            return res.redirect('/home')
         }
         catch(error){
             console.error(error)
-            res.status(500).json({erro: 'erro interno do servidor, nao foi possivel achar usuario'})
+            res.status(500).render('/login',{erro: 'erro interno do servidor, nao foi possivel achar usuario'});
         }
     }
 };
