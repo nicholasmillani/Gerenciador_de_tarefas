@@ -6,15 +6,63 @@
       align-items: center;
       padding: 20px 0;
       gap: 30px;
-      height: 100vh
-     
-    }
+      height: 100vh;
+      
+}
     body{
     margin: 0;
     display: flex; /* Para colocar a sidebar ao lado do conteúdo */
     height: 100vh;  /* Importante para garantir 100% da altura */
+    background-color: #C0DEFF;
     }
     #linhaDest{
-        width: 6px;
-        background-color: #174675;
+      width: 6px;
+      background-color: #174675;
+      height: 100vh;
     }
+    #livroHome{
+      height:110px;
+      width: 120px;
+    }
+    .conteudo{
+      text-align: center;
+    }
+    .btnSide{
+      padding-top: 30%;
+      height: 90px;
+      width: 90px;
+    }
+    .cont{
+      height:90px ;
+      width: 90px;
+      padding-top: 20%;
+      text-align: center;
+    }
+.kanban {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.coluna {
+  background: #e1f0ff;
+  border-radius: 10px;
+  width: 200px;
+  padding: 25px;
+  min-height: 300px;
+  border: 2px solid #000000;
+  margin-left: 80px;
+  margin-bottom: 10px;
+  box-shadow:2px 2px 2px rgba(0, 0, 0, 0.527);
+}
+
+.cabecaCol{
+  background-color: #007bff; /* azul escuro */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 100%;
+  border-radius: 10px;
+}

@@ -97,19 +97,19 @@ const usuarioController = {
             const {email, senha} = req.body;
             const usuario = await usuarioModel.autenticarUsuario(email, senha);
             if(!usuario){
-               return res.status(401).redirect('/login',{erro:'Acesso negado'})
+               return res.status(401).redirect('/',{erro:'Acesso negado'})
             }
             req.session.usuario = {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email
             };
-            
+
             return res.redirect('/home')
         }
         catch(error){
             console.error(error)
-            res.status(500).render('/login',{erro: 'erro interno do servidor, nao foi possivel achar usuario'});
+            res.status(500).render('Login',{erro: 'erro interno do servidor, nao foi possivel achar usuario'});
         }
     }
 };
