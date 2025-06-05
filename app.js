@@ -41,3 +41,4 @@ app.get('/criarConta', renderController.renderizarCriarConta);
 app.post('/criarConta', usuarioController.criarUsuario);
 app.get('/home',autenticar, renderController.renderizarHome );
 app.post('/', usuarioController.login)
+//app.get('/criarTarefa', autenticar, renderController.renderizarCriarTask);
