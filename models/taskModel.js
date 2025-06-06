@@ -51,7 +51,31 @@ class Task {
       [usuarios_id]
     );
       return result.rows
+  
   }
+
+  static async buscarPorAlta(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE prioridade_id = 3 AND usuarios_id =$1',
+      [usuarios_id]
+    );
+    return result.rows
+  }
+    static async buscarPorMedia(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE prioridade_id = 2 AND usuarios_id =$1',
+      [usuarios_id]
+    );
+    return result.rows
+  }
+      static async buscarPorBaixa(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE prioridade_id = 1 AND usuarios_id =$1',
+      [usuarios_id]
+    );
+    return result.rows
+  }
+
 }
 
 module.exports = Task; // Exporta a classe para ser usada em outros arquivos

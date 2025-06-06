@@ -32,9 +32,11 @@
             </div>
 
             <div class="corpoCol">
-                <%for(task of tasks){%>
-                    <p><%=task.nome_task%></p>
+                
+                <%for(baix of baixa){%>
+                    <p><%=baix.nome_task%></p>
                     <%}%>
+                    
             </div>
         </div>
         
@@ -45,7 +47,9 @@
             </div>
 
             <div class="corpoCol">
-
+               <%for(medi of media){%>
+                    <p><%=medi.nome_task%></p>
+                    <%}%>
             </div>
         </div>
         
@@ -55,7 +59,9 @@
             </div>
 
             <div class="corpoCol">
-
+                <%for(alt of alta){%>
+                    <p><%=alt.nome_task%></p>
+                    <%}%>
             </div>
         </div>
   </div>

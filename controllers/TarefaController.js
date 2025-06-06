@@ -81,8 +81,12 @@ const taskController = {
 async buscarTaskIdUs(req, res){
   try{
     const id = req.session.usuario.id;
-    const tasks = await taskModel.buscarTaskIdUs(id);
-    return res.status(200).render('Home', {tasks});
+    //const tasks = await taskModel.buscarTaskIdUs(id);
+    const alta = await taskModel.buscarPorAlta(id);
+    const media = await taskModel.buscarPorMedia(id);
+    const baixa = await taskModel.buscarPorBaixa(id);
+
+  return res.status(200).render('Home', {alta, media, baixa});
   }
   catch(error){
     console.error(error)
