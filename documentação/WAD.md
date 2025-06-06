@@ -221,7 +221,26 @@ Descrição: Retorna uma prioridade específica pelo ID.
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+#### 1. Tela de Login
+![image](https://github.com/user-attachments/assets/e0da2087-d28a-4788-8d69-38c5da76c11b)
+
+**Descrição:**
+- Dividida em duas seções: à esquerda, uma mensagem de boas-vindas com um ícone de livro; à direita, o formulário de login.
+- Formulário com inputs estilizados para email e senha, com botões de "Entrar" e "Criar conta".
+
+#### Tela de Home
+![image](https://github.com/user-attachments/assets/0d4e5f24-ab33-4a44-99ed-777f4a2dd46d)
+**Descrição:**
+- Área de navegação lateral com ícones para menu, adicionar tarefa, notificações e configurações.
+- Cards verticais divididos por prioridade da tarefa: Baixa, Média e Alta.
+- Exibição dinâmica das tarefas do usuário autenticado.
+
+#### Tela de Cadastro
+![image](https://github.com/user-attachments/assets/5dc104a0-8c9d-46da-9768-def9a47c78ca)
+**Descrição:**
+- Segue o mesmo layout dividido da tela de login, mantendo a identidade visual.
+- Campos para nome, email e senha.
+- Botão de "Criar conta" e link para retornar ao login.
 
 ---
 
