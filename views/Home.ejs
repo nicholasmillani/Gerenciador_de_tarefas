@@ -8,9 +8,9 @@
 </head>
 <body>
         <div id="total">
-
+            <h1></h1>
         <div id="sidebar">
-
+            
             <div class ='conteudo'>
                 <img src="/images/livro.png" id="livroHome" alt="Foto do livro">
                 <img src="/images/mais.svg" alt="Mais" class="btnSide">
@@ -22,7 +22,7 @@
 
     </div>
     <div id="linhaDest"></div>
-
+    
     <div class="kanban">
         
         <div class="coluna" id="baixa">
@@ -32,7 +32,9 @@
             </div>
 
             <div class="corpoCol">
-
+                <%for(task of tasks){%>
+                    <p><%=task.nome_task%></p>
+                    <%}%>
             </div>
         </div>
         

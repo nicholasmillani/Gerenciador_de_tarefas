@@ -80,9 +80,9 @@ const taskController = {
   },
 async buscarTaskIdUs(req, res){
   try{
-    const {id} = req.session.usuario.id
-    const tasks = await taskModel.buscarTaskIdUs(id)
-    return res.status(200).json(tasks)
+    const id = req.session.usuario.id;
+    const tasks = await taskModel.buscarTaskIdUs(id);
+    return res.status(200).render('Home', {tasks});
   }
   catch(error){
     console.error(error)

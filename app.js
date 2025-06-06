@@ -40,6 +40,5 @@ app.get('/', renderController.renderizarLogin);
 app.post('/', usuarioController.login)
 app.get('/criarConta', renderController.renderizarCriarConta);
 app.post('/criarConta', usuarioController.criarUsuario);
-app.get('/home',autenticar, renderController.renderizarHome );
+app.get('/home',autenticar, taskController.buscarTaskIdUs);
 
-//app.get('/criarTarefa', autenticar, renderController.renderizarCriarTask);

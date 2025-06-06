@@ -13,7 +13,7 @@ const autenticar = require('../middlewares/autenticar')
 router.get('/tasks', taskController.listarTasks);
 
 //endpoint para pegar task por id
-router.get("/tasks/:id", taskController.obterTask);
+router.get("/tasks/:id",autenticar, taskController.obterTask);
 
 //endpoint para criar task
 router.post('/tasks', taskController.criarTask);
