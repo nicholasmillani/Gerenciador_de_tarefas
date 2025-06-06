@@ -6,6 +6,7 @@ const taskController = require('../controllers/TarefaController');
 const userController = require('../controllers/usuarioController');
 const categoriaController = require('../controllers/categoriaController');
 const prioridadeController = require('../controllers/prioridadeController');
+const autenticar = require('../middlewares/autenticar')
 
 
 //endpoint para listar todas as tasks
@@ -22,6 +23,8 @@ router.delete('/tasks/:nome_task', taskController.deletarTask);
 
 //endpoint para atualizar task
 router.put('/tasks', taskController.atualizarInfo);
+
+router.get('/userTasks',autenticar ,taskController.buscarTaskIdUs)
 
 
 //endpoints dos usuarios

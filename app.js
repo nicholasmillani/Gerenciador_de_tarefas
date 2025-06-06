@@ -37,8 +37,9 @@ app.set('view engine', 'ejs');
 app.set('views', 'views'); // pasta onde estão os arquivos de view
 
 app.get('/', renderController.renderizarLogin);
+app.post('/', usuarioController.login)
 app.get('/criarConta', renderController.renderizarCriarConta);
 app.post('/criarConta', usuarioController.criarUsuario);
 app.get('/home',autenticar, renderController.renderizarHome );
-app.post('/', usuarioController.login)
+
 //app.get('/criarTarefa', autenticar, renderController.renderizarCriarTask);

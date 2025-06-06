@@ -44,6 +44,14 @@ class Task {
     );
     return result.rows[0]; 
   }
+
+  static async buscarTaskIdUs(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE usuarios_id = $1',
+      [usuarios_id]
+    );
+      return result.rows
+  }
 }
 
 module.exports = Task; // Exporta a classe para ser usada em outros arquivos

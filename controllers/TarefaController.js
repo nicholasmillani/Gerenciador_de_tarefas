@@ -78,6 +78,17 @@ const taskController = {
       return res.status(500).json({ erro: 'Não foi possível atualizar a informação' });
     }
   },
+async buscarTaskIdUs(req, res){
+  try{
+    const {id} = req.session.usuario.id
+    const tasks = await taskModel.buscarTaskIdUs(id)
+    return res.status(200).json(tasks)
+  }
+  catch(error){
+    console.error(error)
+    res.status(500).json({erro:'Erro ao buscar tasks'});    
+  }
+}
   
 };
 

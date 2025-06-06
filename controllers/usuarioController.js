@@ -44,7 +44,7 @@ const usuarioController = {
         try {
             const { nome, email, senha } = req.body;
             const usuario = await usuarioModel.criarUsuario(nome, email, senha);
-            return res.status(200).json(usuario)
+            return res.render('sucessoCriar')
         }
         catch (error) {
             console.error(error);
@@ -97,14 +97,13 @@ const usuarioController = {
             const {email, senha} = req.body;
             const usuario = await usuarioModel.autenticarUsuario(email, senha);
             if(!usuario){
-               return res.status(401).redirect('/',{erro:'Acesso negado'})
+               return res.status(401).render('erroCriar')
             }
             req.session.usuario = {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email
             };
-
             return res.redirect('/home')
         }
         catch(error){
