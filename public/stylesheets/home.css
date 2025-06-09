@@ -146,18 +146,21 @@ body {
 
 /* Cores por prioridade */
 .baixa-priority {
-    border-left-color: #48bb78;
+    border-left-color: #60BE75;
     background: white;
+    border-left-width: 10px;
 }
 
 .media-priority {
-    border-left-color: #ecc94b;
+    border-left-color: #E79736;
     background: white;
+    border-left-width: 10px;
 }
 
 .alta-priority {
-    border-left-color: #f56565;
+    border-left-color: #FC5454;
     background: white;
+    border-left-width: 10px;
 }
 
 /* Estilo para o corpo da coluna */

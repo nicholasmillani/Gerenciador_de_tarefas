@@ -34,7 +34,9 @@ const taskController = {
   // Cria um novo usuário
   async criarTask(req, res) {
     try {
-      const novotasks = await taskModel.create(req.body); // Cria com base no corpo da requisição
+      const {nome_task, descricao, prazo, prioridade_id} = req.body
+      const usuarios_id = req.session.usuario.id
+      const novotasks = await taskModel.create(nome_task, descricao, prazo, usuarios_id,prioridade_id); // Cria com base no corpo da requisição
       return res.status(201).json(novotasks); // Retorna o usuário criado com status 201
     }
      catch (error) {

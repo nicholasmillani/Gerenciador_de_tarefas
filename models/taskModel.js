@@ -17,12 +17,12 @@ class Task {
   }
 
   // Cria uma nova task
-  static async create(nome_task, descricao, prazo, usuarios_id, categoria_id) {
+  static async create(nome_task, descricao, prazo, usuarios_id, prioridade_id) {
   const result = await db.query(
-    `INSERT INTO tasks (nome_task, descricao, prazo, usuarios_id, categoria_id)
+    `INSERT INTO tasks (nome_task, descricao, prazo, usuarios_id, prioridade_id)
      VALUES ($1, $2, $3, $4, $5)
      RETURNING *`, 
-    [nome_task, descricao, prazo, usuarios_id, categoria_id]
+    [nome_task, descricao, prazo, usuarios_id, prioridade_id]
   );
   return result.rows[0]; 
 }

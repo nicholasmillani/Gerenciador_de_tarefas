@@ -97,7 +97,7 @@ const usuarioController = {
             const {email, senha} = req.body;
             const usuario = await usuarioModel.autenticarUsuario(email, senha);
             if(!usuario){
-               return res.status(401).render('erroCriar')
+               return res.status(401).render('erroVerificar')
             }
             req.session.usuario = {
                 id: usuario.id,

@@ -36,16 +36,21 @@
                 
                 <%for(baix of baixa){%>
                     <div class="task-card baixa-priority">
+                        
                         <div class="task-content">
                             <h3><%=baix.nome_task%></h3>
+
                             <div class="task-actions">
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
+
                         </div>
+
                     </div>
                 <%}%>
                     
             </div>
+
         </div>
         
         
@@ -55,17 +60,26 @@
             </div>
 
             <div class="corpoCol">
+
                <%for(medi of media){%>
+
                     <div class="task-card media-priority">
+
                         <div class="task-content">
                             <h3><%=medi.nome_task%></h3>
                             <div class="task-actions">
+
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
+
                         </div>
+
                     </div>
+
                 <%}%>
+
             </div>
+
         </div>
         
         <div class="coluna" id="alta">
@@ -76,16 +90,49 @@
             <div class="corpoCol">
                 <%for(alt of alta){%>
                     <div class="task-card alta-priority">
+
                         <div class="task-content">
                             <h3><%=alt.nome_task%></h3>
                             <div class="task-actions">
+
+            
                                 <i class="fas fa-ellipsis-v"></i>
+
                             </div>
+
                         </div>
+
                     </div>
                 <%}%>
             </div>
+
         </div>
   </div>
+
+<div id="popupCriar">
+    <section>
+        <form action="/api/tasks" method="post">
+
+            <p><label for="nome_task">Nome:</label>
+            <input type="text" name="nome_task"></input></p>
+            
+           
+
+            <label for="descricao">Descrição:</label>
+            <textarea name="descricao" id="descrição"></textarea>
+
+            <label for="prioridade_id">Prioridade</label>
+            <p><select name="prioridade_id" id=""></p>
+                <option value=1>Baixa</option>
+                <option value=2>Média</option>
+                <option value=3>Alta</option>
+            </select>
+            <button type="submit">Criar</button>
+
+
+        </form>
+    </section>
+</div>
+
 </body>
 </html>
