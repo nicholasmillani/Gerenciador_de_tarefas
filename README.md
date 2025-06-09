@@ -11,6 +11,8 @@ Um gerenciador de tarefas completo com frontend e backend integrados. Ele permit
 ### Backend
 - PostgreSQL
 - SQL
+- node
+- express
 ## Estrutura de pastas:
 A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas estão a baixo:
 ```
@@ -18,27 +20,41 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 │   └── database.js
 ├── controllers/           
 │   └── TarefaController.js
+│   └── categoriaController.js
+│   └── prioridadeController.js
+│   └── renderController.js
+│   └── userController.js
+├── middlewares/
+│   └──autenticar.js
 ├── models/                
 │   └── UserModel.js
+│   └── categoriaModel.js
+│   └── prioridadeModel.js
+│   └── taskModel.js
 ├── routes/                
-│   └── index.js
-├── services/             
-│   └── userService.js
-├── assets/                
+│   └── index.js                
 ├── scripts/
 │   └── init.sql
 │   └── runSQLScripts.js         
-├── styles/                
+├── public/
+│   └──/images
+│   └──/stylesheets
+│   └──/scripts           
 ├── tests/                 
-│   └── example.test.js
+├──views/
+│   └── CriarConta.ejs
+│   └── erroVerificar.ejs
+│   └── Home.ejs
+│   └── login.ejs
+│   └── sucessoCriar.ejs
 ├── .gitignore             
-├── .env.example           
+├── .env
+├── app.js           
 ├── jest.config.js         
 ├── package-lock.json      
 ├── package.json           
 ├── readme.md              
-├── server.js              
-└── rest.http              
+├── server.js                           
 ```
 
 ##  Funcionalidades
@@ -53,7 +69,9 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 ## Como rodar localmente
 ### 1: Clone esse repositório
 ### 2: instale as dependências(npm i)
-### 3: Coloque esse comando no terminal(node server.js)
+### 3: Coloque esse comando no terminal(node app.js)
 
 ##  Contato
 Desenvolvido por **Nicholas A.K Millani**
+
+email: **Nicholas_millani@outlook.com**
