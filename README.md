@@ -1,11 +1,11 @@
-#  Gerenciador de tarefas
+#  Nichotasks
 
 Um gerenciador de tarefas completo com frontend e backend integrados. Ele permite criar, editar, excluir, marcar tarefas como concluídas e definir prioridades. Dessa forma, o usuário consegue organizar suas atividades de maneira mais eficiente, conciliando a vida pessoal e profissional.
 
 ##  Tecnologias Utilizadas
 
 ### Frontend
-- HTML
+- EJS
 - CSS
 - JAVASCRIPT
 ### Backend
@@ -63,7 +63,6 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 -  Editar título 
 -  Excluir tarefas
 -  Marcar como concluída ou pendente
--  Filtrar por status
 -  Priorizar tarefas
 
 ## Como rodar localmente
