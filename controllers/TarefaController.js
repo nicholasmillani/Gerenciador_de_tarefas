@@ -9,7 +9,7 @@ const taskController = {
     } 
     catch (error) {
       console.error(error);
-      return res.status(500).json({ erro: 'Erro ao listar usuários' }); // Erro interno
+      return res.status(500).json({ erro: 'Erro ao listar tasks' }); // Erro interno
     }
   },
 
@@ -27,7 +27,7 @@ const taskController = {
     } 
     catch (error) {
       console.error(error);
-      return res.status(500).json({ erro: 'Erro ao buscar o usuário' });
+      return res.status(500).json({ erro: 'Erro ao buscar o usuár' });
     }
   },
   
@@ -50,15 +50,15 @@ const taskController = {
     try {
       const { id } = req.params; // Pega o id da URL
       const deletado = await taskModel.delete(id); // Chama o delete no model
-
+      console.log(id)
       if (!deletado) {
-        return res.status(404).json({ erro: 'Usuário não encontrado para deletar' });
+        return res.status(404).json({ erro: 'task não encontrada para deletar' });
       }
-      return res.status(200).json(deletado); // Retorna o usuário deletado
+      return res.redirect('/home'); // Retorna o usuário deletado
     } 
     catch (error) {
       console.error(error);
-      return res.status(500).json({ erro: 'Erro ao deletar o usuário' });
+      return res.status(500).json({ erro: 'Erro ao deletar task' });
     }
   },
 
@@ -66,8 +66,8 @@ const taskController = {
   async atualizarInfo(req, res) {
     try {
       const { id } = req.params; // Pega o ID da URL
-      const { nome } = req.body; // Pega o novo nome do corpo da requisição
-      const atualizado = await taskModel.update(nome, id); // Chama o update no model
+      const finalizada = true;
+      const atualizado = await taskModel.update(finalizada, id); // Chama o update no model
 
       if (!atualizado) {
         return res.status(404).json({ erro: 'Usuário não encontrado para atualizar' });

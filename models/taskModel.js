@@ -28,19 +28,19 @@ class Task {
 }
 
   // Deleta uma task pelo ID do usuário
-  static async delete(usuarios_id) {
+  static async delete(id) {
     const result = await db.query(
-      'DELETE FROM tasks WHERE usuarios_id = $1 RETURNING *',
-      [usuarios_id]
+      'DELETE FROM tasks WHERE id = $1 RETURNING *',
+      [id]
     );
     return result.rows[0]; 
   }
 
   // Atualiza o nome da task pelo ID da task
-  static async update(nome_task, id) {
+  static async update(finalizada, id) {
     const result = await db.query(
-      'UPDATE tasks SET nome_task = $1 WHERE id = $2 RETURNING *',
-      [nome_task, id]
+      'UPDATE tasks SET finalizada = $1 WHERE id = $2 RETURNING *',
+      [finalizada, id]
     );
     return result.rows[0]; 
   }
@@ -56,21 +56,21 @@ class Task {
 
   static async buscarPorAlta(usuarios_id){
     const result = await db.query(
-      'SELECT * FROM tasks WHERE prioridade_id = 3 AND usuarios_id =$1',
+      'SELECT * FROM tasks WHERE prioridade_id = 3 AND usuarios_id =$1 AND finalizada = false',
       [usuarios_id]
     );
     return result.rows
   }
     static async buscarPorMedia(usuarios_id){
     const result = await db.query(
-      'SELECT * FROM tasks WHERE prioridade_id = 2 AND usuarios_id =$1',
+      'SELECT * FROM tasks WHERE prioridade_id = 2 AND usuarios_id =$1 AND finalizada = false',
       [usuarios_id]
     );
     return result.rows
   }
       static async buscarPorBaixa(usuarios_id){
     const result = await db.query(
-      'SELECT * FROM tasks WHERE prioridade_id = 1 AND usuarios_id =$1',
+      'SELECT * FROM tasks WHERE prioridade_id = 1 AND usuarios_id =$1 AND finalizada = false',
       [usuarios_id]
     );
     return result.rows

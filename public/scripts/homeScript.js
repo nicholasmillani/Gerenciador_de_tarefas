@@ -15,13 +15,14 @@ $(document).ready(function() {
     });
 
     // Popup Especificações ao clicar no ícone
-    $('.fas.fa-ellipsis-v').on("click", function (e) {
+    $('.task-actions').on("click", function (e) {
         e.stopPropagation(); // impede o clique no card de interferir
 
         const card = $(this).closest('.task-card');
         const nome = card.data("nome");
         let descricao = card.data("descricao");
         const prazo = card.data("prazo");
+        const id = card.data("id")
         if(descricao == ""){
             descricao = 'Não há descrição para ser mostrada'
         }
@@ -30,6 +31,24 @@ $(document).ready(function() {
         $("#nome_taskEspec").text(nome);
         $('#descricaoEspec').text(descricao);
         $(".deadline").text(prazo);
+
+        $("#formDelete").on("submit", function(){
+           const certeza = window.confirm('Deseja mesmo deletar essa task?')
+           if(certeza){
+            $.ajax({
+                url:"/api/tasks/" + id,
+                method:"delete",
+                success: function(){
+                    window.location.reload()
+                }
+            },
+        {
+            error:function(error){
+            console.error(error)
+        }})
+           }
+            
+    })
 
         // Exibe o popup
         $('#popupEspec').addClass('active');
@@ -55,4 +74,7 @@ $(document).ready(function() {
     $(".fas.fa-ellipsis-v").on("click", function () {
         $(this).closest('.task-card').addClass('active');
     });
+
 });
+
+

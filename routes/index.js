@@ -19,7 +19,7 @@ router.get("/tasks/:id", taskController.obterTask);
 router.post('/tasks', taskController.criarTask);
 
 //endpoint para deletar task
-router.delete('/tasks/:nome_task', taskController.deletarTask);
+router.delete('/tasks/:id', taskController.deletarTask);
 
 //endpoint para atualizar task
 router.put('/tasks', taskController.atualizarInfo);
