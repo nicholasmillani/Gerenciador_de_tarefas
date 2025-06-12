@@ -1,38 +1,58 @@
-    //Lógica do popup de criar task
-    $(document).ready(function() {
-        // Popup Criar Task
-        $('#openPopup').click(function() {
-            $('#popupCriar').addClass('active');
-        });
-
-        $('#closePopupCriar').click(function() {
-            $('#popupCriar').removeClass('active');
-        });
-
-        $('#popupCriar').click(function(e) {
-            if (e.target === this) {
-                $(this).removeClass('active');
-            }
-        });
-
-        // Popup Especificações
-        $('.task-actions').click(function(e) {
-            e.stopPropagation();
-            const taskCard = $(this).closest('.task-card');
-            const taskName = taskCard.find('h3').text();
-            
-            // Mostrar o popup
-            $('#popupEspec').addClass('active');
-        });
-
-        $('#closePopupEspec').click(function() {
-            $('#popupEspec').removeClass('active');
-        });
-
-        $('#popupEspec').click(function(e) {
-            if (e.target === this) {
-                $(this).removeClass('active');
-            }
-        });
+$(document).ready(function() {
+    // Popup Criar Task
+    $('#openPopup').click(function() {
+        $('#popupCriar').addClass('active');
     });
 
+    $('#closePopupCriar').click(function() {
+        $('#popupCriar').removeClass('active');
+    });
+
+    $('#popupCriar').click(function(e) {
+        if (e.target === this) {
+            $(this).removeClass('active');
+        }
+    });
+
+    // Popup Especificações ao clicar no ícone
+    $('.fas.fa-ellipsis-v').on("click", function (e) {
+        e.stopPropagation(); // impede o clique no card de interferir
+
+        const card = $(this).closest('.task-card');
+        const nome = card.data("nome");
+        let descricao = card.data("descricao");
+        const prazo = card.data("prazo");
+        if(descricao == ""){
+            descricao = 'Não há descrição para ser mostrada'
+        }
+
+        // Atualiza o conteúdo do popup
+        $("#nome_taskEspec").text(nome);
+        $('#descricaoEspec').text(descricao);
+        $(".deadline").text(prazo);
+
+        // Exibe o popup
+        $('#popupEspec').addClass('active');
+    });
+
+    // Fechar popup de especificações
+    $('#closePopupEspec').click(function() {
+        $('#popupEspec').removeClass('active');
+    });
+
+    $('#popupEspec').click(function(e) {
+        if (e.target === this) {
+            $(this).removeClass('active');
+        }
+    });
+
+    // Remove classe ativa das tasks quando fecha o popup criar
+    $("#closePopupCriar").on('click', function () {
+        $('.task-card').removeClass('active');
+    });
+
+    // Adiciona classe ativa na task clicada
+    $(".fas.fa-ellipsis-v").on("click", function () {
+        $(this).closest('.task-card').addClass('active');
+    });
+});

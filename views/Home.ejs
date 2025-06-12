@@ -31,7 +31,11 @@
             <div class="corpoCol">
                 
                 <%for(baix of baixa){%>
-                    <div class="task-card baixa-priority">
+                    <div class="task-card baixa-priority" 
+                    data-nome = "<%=baix.nome_task%>"
+                    data-descricao="<%=baix.descricao%>"
+                    data-prazo="<%=baix.prazo%>"
+                    data-id="<%=baix.id%>">
                         
                         <div class="task-content">
                             <h3><%=baix.nome_task%></h3>
@@ -59,7 +63,11 @@
 
                <%for(medi of media){%>
 
-                    <div class="task-card media-priority">
+                    <div class="task-card media-priority"
+                    data-nome = "<%=baix.nome_task%>"
+                    data-descricao="<%=baix.descricao%>"
+                    data-prazo="<%=baix.prazo%>"
+                    data-id="<%=baix.id%>">
 
                         <div class="task-content">
                             <h3><%=medi.nome_task%></h3>
@@ -85,7 +93,11 @@
 
             <div class="corpoCol">
                 <%for(alt of alta){%>
-                    <div class="task-card alta-priority">
+                    <div class="task-card alta-priority"
+                    data-nome = "<%=baix.nome_task%>"
+                    data-descricao="<%=baix.descricao%>"
+                    data-prazo="<%=baix.prazo%>"
+                    data-id="<%=baix.id%>">
 
                         <div class="task-content">
                             <h3><%=alt.nome_task%></h3>
@@ -139,12 +151,12 @@
     <section>
         <button class="closePopup" id="closePopupEspec">×</button>
         <div class="content">
-            <h1>Nome da task</h1>
-            <div class="description">
-                <p>Descrição da task</p>
+            <h1 id="nome_taskEspec">Nome da task</h1>
+            <div class="descricao">
+                <p id="descricaoEspec">Descrição da task</p>
             </div>
             <div class="deadline">Prazo: xx/xx/xxxx</div>
-            <button class="butPop">Finalizar</button>
+            <button class="butPop" id="deleteBtt">Finalizar</button>
         </div>
     </section>
 </div>
