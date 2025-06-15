@@ -60,9 +60,7 @@ A estrutura das pastas segue o formato MVC (Model, View, Controller), as pastas 
 ##  Funcionalidades
 
 -  Criar tarefas
--  Editar título 
 -  Excluir tarefas
--  Marcar como concluída ou pendente
 -  Priorizar tarefas
 
 ## Como rodar localmente
