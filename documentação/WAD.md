@@ -248,13 +248,288 @@ Descrição: Retorna uma prioridade específica pelo ID.
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+Vídeo de demonstração: https://www.youtube.com/watch?v=LY-fedlrMTc
+
+O sistema conta com criação de usuário, verificação de login, criação de tarefas que são feitas por usuario, deleção de tarefas e escolha de prioridade por tarefa.
+
+### criação de usuário
+É possivel criar um usuário para posteriormente conseguir entrar no seu homepage. Ao criar a conta a senha colocada é criptografada usando a biblioteca bcrypt e é enviada ao banco de dados.
+
+Model:
+``` js
+    static async criarUsuario(nome, email, senha) {
+        try {
+            const saltRounds = 10;
+            const senhaHash = await bcrypt.hash(senha, saltRounds);
+
+            const result = await db.query(
+                'INSERT INTO usuarios(nome, email, senha) VALUES($1, $2, $3) RETURNING *',
+                [nome, email, senhaHash]
+            );
+
+            return result.rows[0];
+        } catch (error) {
+            console.error('Erro ao criar usuário:', error);
+            throw error;
+        }
+    };
+```
+
+controller:
+``` js
+async criarUsuario(req, res) {
+        try {
+            const { nome, email, senha } = req.body;
+            const usuario = await usuarioModel.criarUsuario(nome, email, senha);
+            return res.render('sucessoCriar')
+        }
+        catch (error) {
+            console.error(error);
+            return res.status(500).json({ erro: 'Erro ao criar usuário' });
+        }
+    },
+```
+
+### Verificação de login
+A verificação de login é feita usando um query normal no banco de dados, onde ele retorna a primeira linha que ele achou que possui o respectivo email e senha do usuário, se o usuário existir, as informações como nome e id são salvas na sessão(Isso é feito usando a biblioteca express sessions) e após isso o usuário e redirecionado para a página home
+
+model:
+``` js
+static async autenticarUsuario(email, senha){
+         try {
+            //Buscar usuário pelo email
+            const result = await db.query('SELECT * FROM usuarios WHERE email = $1', [email]);
+            
+            if (result.rows.length === 0) {
+                return null; // Email não encontrado
+            }
+            const usuario = result.rows[0];
+
+            //Comparar senha digitada com a senha criptografada do banco
+            const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
+
+            //Retornar usuário se a senha estiver correta
+            return senhaCorreta ? usuario : null;
+
+        } 
+        catch (error) {
+            console.error('Erro ao autenticar usuário:', error);
+        }
+    }
+}
+```
+
+Controller:
+``` js
+async login(req, res){
+        try{
+            const {email, senha} = req.body;
+            const usuario = await usuarioModel.autenticarUsuario(email, senha);
+            if(!usuario){
+               return res.status(401).render('erroVerificar')
+            }
+            req.session.usuario = {
+                id: usuario.id,
+                nome: usuario.nome,
+                email: usuario.email
+            };
+            return res.redirect('/home')
+        }
+        catch(error){
+            console.error(error)
+            res.status(500).render('Login',{erro: 'erro interno do servidor, nao foi possivel achar usuario'});
+        }
+    }
+};
+```
+
+### Criação de tarefas
+A criação de tarefas é feita por meio de um query normal, a tarefa criada é referenciada ao usuário por meio do id salvo na sessão que está de pé.
+
+model:
+``` js
+ static async create(nome_task, descricao, prazo, usuarios_id, prioridade_id) {
+  const result = await db.query(
+    `INSERT INTO tasks (nome_task, descricao, prazo, usuarios_id, prioridade_id)
+     VALUES ($1, $2, $3, $4, $5)
+     RETURNING *`, 
+    [nome_task, descricao, prazo, usuarios_id, prioridade_id]
+  );
+  return result.rows[0]; 
+}
+```
+
+controller:
+```js
+ async criarTask(req, res) {
+    try {
+      const {nome_task, descricao, prazo, prioridade_id} = req.body
+      const usuarios_id = req.session.usuario.id
+      const novotasks = await taskModel.create(nome_task, descricao, prazo, usuarios_id,prioridade_id); // Cria com base no corpo da requisição
+      return res.status(201).redirect('/home'); // Retorna o usuário criado com status 201
+    }
+     catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Erro ao criar usuário' });
+    }
+  },
+```
+
+### deleção de tarefas
+A deleção foi feita de uma maneira diferente, no ejs, cada task criada teve que ter seus valores salvos(id, nome e descrição) em atributos de data, para assim serem chamadas no js e conseguirem ser tratadas e deletadas.
+
+```ejs
+ <div class="coluna" id="baixa">
+                
+            <div class="cabecaCol">
+                    <h2>Baixa</h2>
+            </div>
+
+            <div class="corpoCol">
+                
+                <%for(baix of baixa){%>
+                    <div class="task-card baixa-priority" 
+                    data-nome = "<%=baix.nome_task%>"
+                    data-descricao="<%=baix.descricao%>"
+                    data-prazo="<%=baix.prazo%>"
+                    data-id="<%=baix.id%>">
+                        
+                        <div class="task-content">
+                            <h3><%=baix.nome_task%></h3>
+
+                            <p></p>
+                            <div class="task-actions">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                <%}%>
+                    
+            </div>
+
+        </div>
+```
+
+model:
+```js
+static async delete(id) {
+    const result = await db.query(
+      'DELETE FROM tasks WHERE id = $1 RETURNING *',
+      [id]
+    );
+    return result.rows[0]; 
+  }
+```
+
+controller
+```js
+ async deletarTask(req, res) {
+    try {
+      const { id } = req.params; // Pega o id da URL
+      const deletado = await taskModel.delete(id); // Chama o delete no model
+      console.log(id)
+      if (!deletado) {
+        return res.status(404).json({ erro: 'task não encontrada para deletar' });
+      }
+      return res.redirect('/home'); // Retorna o usuário deletado
+    } 
+    catch (error) {
+      console.error(error);
+      return res.status(500).json({ erro: 'Erro ao deletar task' });
+    }
+  },
+```
+
+```js
+$('.task-actions').on("click", function (e) {
+        e.stopPropagation(); // impede o clique no card de interferir
+
+        const card = $(this).closest('.task-card');
+        const nome = card.data("nome");
+        let descricao = card.data("descricao");
+        const prazo = card.data("prazo");
+        const id = card.data("id")
+        if(descricao == ""){
+            descricao = 'Não há descrição para ser mostrada'
+        }
+
+        // Atualiza o conteúdo do popup
+        $("#nome_taskEspec").text(nome);
+        $('#descricaoEspec').text(descricao);
+        $(".deadline").text(prazo);
+
+        $("#formDelete").on("submit", function(){
+           const certeza = window.confirm('Deseja mesmo deletar essa task?')
+           if(certeza){
+            $.ajax({
+                url:"/api/tasks/" + id,
+                method:"delete",
+                success: function(){
+                    window.location.reload()
+                }
+            },
+        {
+            error:function(error){
+            console.error(error)
+        }})
+           }
+            
+    })
+```
+
+### escolher tarefa por prioridade
+As tarefas são separadas por prioridade, cada coluna representa uma, a busca por elas é feita por três buscas, por baixa, média e alta.
+
+models
+```js
+static async buscarPorAlta(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE prioridade_id = 3 AND usuarios_id =$1 AND finalizada = false',
+      [usuarios_id]
+    );
+    return result.rows
+  }
+    static async buscarPorMedia(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE prioridade_id = 2 AND usuarios_id =$1 AND finalizada = false',
+      [usuarios_id]
+    );
+    return result.rows
+  }
+      static async buscarPorBaixa(usuarios_id){
+    const result = await db.query(
+      'SELECT * FROM tasks WHERE prioridade_id = 1 AND usuarios_id =$1 AND finalizada = false',
+      [usuarios_id]
+    );
+    return result.rows
+  }
+```
+
+Controller
+```js
+async buscarTaskIdUs(req, res){
+  try{
+    const id = req.session.usuario.id;
+    //const tasks = await taskModel.buscarTaskIdUs(id);
+    const alta = await taskModel.buscarPorAlta(id);
+    const media = await taskModel.buscarPorMedia(id);
+    const baixa = await taskModel.buscarPorBaixa(id);
+
+  return res.status(200).render('Home', {alta, media, baixa});
+  }
+  catch(error){
+    console.error(error)
+    res.status(500).json({erro:'Erro ao buscar tasks'});    
+  }
+```
+
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+Como pontos fortes, eu diria que consegui adicionar funcionalidades como criar e deletar tarefas, além de ser possivel abrir um popup de cada task com suas especificações, esses todos feitos de maneira funcional e concreta.
+
+Como pontos de melhoria, eu gostaria de adicionar mais funcionalidades e páginas, como a opção de adicionar um prazo para certa tarefa e atualizar descrição/título, para deste modo deixar o site mais completo e com mais funcionalidades.
 
 
 
